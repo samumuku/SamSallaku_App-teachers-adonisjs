@@ -27,20 +27,24 @@
               {{ teacher.nickname }}
             </td>
             <td class="containerOptions">
-              <a href="#">
-                <img height="20em" src="./img/edit.png" alt="edit" />
+              <a href="{{ route('teacher.edit', {id: teacher.id}) }}">
+                <img height="20em" src="/img/edit.png" alt="edit" />
               </a>
-              <a href="javascript:confirmDelete()">
-                <img height="20em" src="./img/delete.png" alt="delete" />
-              </a>
-              <a href="{{ route('teacher.show', {id: teacher.id}) }}">
-                <img height="20em" src="/img/detail.png" alt="detail" />
-              </a>
+            </a>
+            <a
+              onClick="return confirm(`Voulez-vous vraiment supprimer l'enseignant {{ teacher.lastname }} {{ teacher.firstname }} ?`)"
+              href="{{ route('teacher.destroy', {id: teacher.id}) }}"
+            >
+              <img height="20em" src="./img/delete.png" alt="delete" />
+            </a>
+            <a href="{{ route('teacher.show', {id: teacher.id}) }}">
+              <img height="20em" src="/img/detail.png" alt="detail" />
+            </a>
 
-            </td>
-          </tr>
-        @end
-      </tbody>
-    </table>
-  </form>
+          </td>
+        </tr>
+      @end
+    </tbody>
+  </table>
+</form>
 @endcomponent
